@@ -4,6 +4,7 @@
 // @version      0.1
 // @description  Make X a bearable experience
 // @match        *://*.twitter.com/*
+// @match        *://*.x.com/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=twitter.com
 // @grant        none
 // @run-at       document-idle
@@ -46,10 +47,11 @@
     `;
 
     const HOME_PAGE = 'twitter.com/home';
+    const X_HOME_PAGE = 'x.com/home';
     const FOR_YOU_DIV = '[role=tab] > div > div';
 
     const setNahDog = () => {
-        const isHomePage = location.href.includes(HOME_PAGE);
+        const isHomePage = location.href.includes(HOME_PAGE) || location.href.includes(X_HOME_PAGE);
         const forYouTab = document.querySelector(`${FOR_YOU_DIV} > div`);
         const forYouTabText = document.querySelector(`${FOR_YOU_DIV} > span`);
         const isForYouText = forYouTabText?.innerText === 'For you';
